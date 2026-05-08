@@ -1,7 +1,9 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class DealershipFileManager {
@@ -48,7 +50,17 @@ public Dealership getDealership() {
         return null;
     }
 }
+
+//need tyo fix this
 public void saveDealership(){
+    try{
+        BufferedWriter writer = new BufferedWriter(new FileWriter(getDealership().getName() + ".csv", true));
+        writer.write(String.valueOf(inventory));asdgasfgasgqewrghwerhwert
+
+        writer.close();
+    } catch (Exception e){
+        System.out.println("Failed to make new dealership file");
+    }
 
 }
     //save all changes to file
