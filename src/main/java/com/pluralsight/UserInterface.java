@@ -99,10 +99,15 @@ public class UserInterface {
     }
 
     public void processGetVehiclesByPrice(Scanner scanner){
-        String[] info = askInfo("min and max price", scanner);
-        ArrayList<Vehicle> inventory = dealership.getVehiclesByPrice(Double.parseDouble(info[0]), Double.parseDouble(info[1]));
-
-        displayVehicles(inventory);
+        while(true) {
+            String[] info = getMinMax("price", scanner);
+            try {
+                displayVehicles(dealership.getVehiclesByPrice(Double.parseDouble(info[0]), Double.parseDouble(info[1])));
+                break;
+            } catch (Exception e) {
+                System.out.println("Invalid input");
+            }
+        }
     }
 
     public void processGetVehiclesByMakeModel(Scanner scanner){
@@ -112,48 +117,56 @@ public class UserInterface {
         System.out.println("Please enter the model:");
         String model = scanner.nextLine();
 
-        ArrayList<Vehicle> inventory = dealership.getVehiclesByMakeModel(make, model);
-
-        displayVehicles(inventory);
+        displayVehicles(dealership.getVehiclesByMakeModel(make, model));
     }
 
     public void processGetVehiclesByYear(Scanner scanner){
-        String[] info = askInfo("min and max year", scanner);
-        ArrayList<Vehicle> inventory = dealership.getVehiclesByYear(Integer.parseInt(info[0]), Integer.parseInt(info[1]));
-
-        displayVehicles(inventory);
+        String[] info = getMinMax("year", scanner);
+        displayVehicles(dealership.getVehiclesByYear(Integer.parseInt(info[0]), Integer.parseInt(info[1])));
     }
 
     public void processGetVehiclesByColor(Scanner scanner){
         String[] info = askInfo("color", scanner);
-        ArrayList<Vehicle> inventory = dealership.getVehiclesByColor(info[0]);
-
-        displayVehicles(inventory);
+        displayVehicles(dealership.getVehiclesByColor(info[0]));
     }
 
     public void processGetVehiclesByMileage(Scanner scanner){
-        String[] info = askInfo("min and max mileage", scanner);
-        ArrayList<Vehicle> inventory = dealership.getVehiclesByMileage(Integer.parseInt(info[0]), Integer.parseInt(info[1]));
-
-        displayVehicles(inventory);
+        String[] info = getMinMax("mileage", scanner);
+        displayVehicles(dealership.getVehiclesByMileage(Integer.parseInt(info[0]), Integer.parseInt(info[1])));
     }
 
     public void processGetVehicleByType(Scanner scanner){
         String[] info = askInfo("vehicle type", scanner);
-        ArrayList<Vehicle> inventory = dealership.getVehiclesByType(info[0]);
+        displayVehicles(dealership.getVehiclesByType(info[0]));
 
-        displayVehicles(inventory);
     }
 
     public void processGetAllVehicles(){
-        ArrayList<Vehicle> inventory = dealership.getAllVehicles();
+        displayVehicles(dealership.getAllVehicles());
 
-        displayVehicles(inventory);
     }
 
     private void displayVehicles(ArrayList<Vehicle> inventory){
         for (Vehicle v: inventory){
             System.out.println(v);
         }
+    }
+    
+    private String[] getMinMax(String string, Scanner scanner){
+        String[] parts = new String[2];
+
+        System.out.println("Please enter the min " + string);
+        parts[0] = scanner.nextLine().trim();
+        if(parts[0].isEmpty()){
+            parts[0] = "0";
+        }
+
+        System.out.println("Please enter the max " + string);
+        parts[1] = scanner.nextLine().trim();
+        if(parts[1].isEmpty()){
+            parts[1] = "999999999";
+        }
+
+        return parts;
     }
 }

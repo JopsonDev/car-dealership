@@ -33,12 +33,16 @@ public Dealership getDealership() {
 
                 Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
                 inventory.add(vehicle);
+
             } else {
                 System.out.println("Invaild data");
             }
         }
+
+        reader.close();
         dealership1.setInventory(inventory);
         return dealership1;
+
     } catch (Exception e) {
         System.out.println("failure");
         return null;
