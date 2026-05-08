@@ -7,7 +7,7 @@ public class Dealership {
     private String address;
     private String phone;
 
-    private ArrayList<Vechicle> inventory;
+    private ArrayList<Vehicle> inventory;
 
     public Dealership(String name, String address, String phone) {
         this.name = name;
@@ -24,11 +24,11 @@ public class Dealership {
         this.address = address;
     }
 
-    public ArrayList<Vechicle> getInventory() {
+    public ArrayList<Vehicle> getInventory() {
         return inventory;
     }
 
-    public void setInventory(ArrayList<Vechicle> inventory) {
+    public void setInventory(ArrayList<Vehicle> inventory) {
         this.inventory = inventory;
     }
 
@@ -50,39 +50,39 @@ public class Dealership {
 
     //Search Methods
 
-    public ArrayList<Vechicle> getVehiclesByPrice(int min, int max) {
+    public ArrayList<Vehicle> getVehiclesByPrice(int min, int max) {
         return null;
     }
 
-    public ArrayList<Vechicle> getVehiclesByMakeModel(String make, String model) {
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
         return null;
     }
 
-    public ArrayList<Vechicle> getVehiclesByYear(int min, int max) {
+    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
         return null;
     }
 
-    public ArrayList<Vechicle> getVehiclesByColor(String color) {
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
         return null;
     }
 
-    public ArrayList<Vechicle> getVehiclesByMileage(int min, int max) {
+    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
         return null;
     }
 
-    public ArrayList<Vechicle> getVehiclesByType(String vehicleType) {
+    public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
         return null;
     }
 
-    public ArrayList<Vechicle> getAllVehicles(){
+    public ArrayList<Vehicle> getAllVehicles(){
         return inventory;
     }
 
-    public void addVehicle(Vechicle vehicle){
+    public void addVehicle(Vehicle vehicle){
 
     }
 
-    public void removeVehicle(Vechicle vehicle){
+    public void removeVehicle(Vehicle vehicle){
 
     }
 }

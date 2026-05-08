@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public class Vechicle {
+public class Vehicle {
     private int vin;
     private int year;
     private String make;
@@ -11,7 +11,7 @@ public class Vechicle {
     private double price;
 
 
-    public Vechicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
+    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
         this.vin = vin;
         this.year = year;
         this.make = make;
@@ -20,5 +20,10 @@ public class Vechicle {
         this.color = color;
         this.odometer = odometer;
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(("%d|%d|%s|%s|%s|%s|%d|%,.2f%n"), vin, year, make, model, vehicleType, color, odometer, price);
     }
 }
