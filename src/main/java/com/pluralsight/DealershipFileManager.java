@@ -8,7 +8,7 @@ public class DealershipFileManager {
     private ArrayList<Vehicle> inventory;
     private String fileName = "inventory.csv";
 
-public Dealership loadInventory() {
+public Dealership getDealership() {
     try {
         BufferedReader reader = new BufferedReader(new FileReader(fileName));
         String line;
@@ -43,6 +43,9 @@ public Dealership loadInventory() {
         System.out.println("failure");
         return null;
     }
+}
+public void saveDealership(){
+
 }
     //save all changes to file
 }
