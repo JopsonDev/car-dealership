@@ -2,8 +2,9 @@ package com.pluralsight;
 
 public class Program {
     public static void main(String[] args) {
-
-        //run application
+        UserInterface runner = new UserInterface();
+        
+        runner.display();
 
         //add in column method from capstone
 

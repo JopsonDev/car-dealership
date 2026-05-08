@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class DealershipFileManager {
-    private ArrayList<Vehicle> inventory;
+    private ArrayList<Vehicle> inventory = new ArrayList<>();
     private String fileName = "inventory.csv";
 
 public Dealership getDealership() {
