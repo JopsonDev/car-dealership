@@ -75,14 +75,14 @@ public class Dealership {
     }
 
     public ArrayList<Vehicle> getAllVehicles(){
-        return inventory;
+            return inventory;
     }
 
     public void addVehicle(Vehicle vehicle){
-
+        inventory.add(vehicle);
     }
 
     public void removeVehicle(Vehicle vehicle){
-
+        inventory.remove(vehicle);
     }
 }
