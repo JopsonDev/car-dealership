@@ -24,6 +24,38 @@ public class Vehicle {
         this.price = price;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getOdometer() {
+        return odometer;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public int getVin() {
+        return vin;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
     @Override
     public String toString() {
         return String.format(("%d|%d|%s|%s|%s|%s|%d|%,.2f%n"), vin, year, make, model, vehicleType, color, odometer, price);

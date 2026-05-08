@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Dealership {
     private String name;
@@ -48,30 +49,30 @@ public class Dealership {
         this.phone = phone;
     }
 
-    //Search Methods
 
+    // v -> says get the object v from method for comparison
     public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
-        return null;
+        return filterVehicle(v -> v.getPrice() >= min && v.getPrice() <= max);
     }
 
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return null;
+        return filterVehicle(v -> v.getMake().equalsIgnoreCase(make) && v.getModel().equalsIgnoreCase(model));
     }
 
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
-        return null;
+        return filterVehicle(v -> v.getYear() >= min && v.getYear() <= max);
     }
 
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
-        return null;
+        return filterVehicle(v -> v.getColor().equalsIgnoreCase(color));
     }
 
     public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
-        return null;
+        return filterVehicle(v -> v.getOdometer() >= min && v.getOdometer() <= max);
     }
 
     public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
-        return null;
+        return filterVehicle(v -> v.getVehicleType().equalsIgnoreCase(vehicleType));
     }
 
     public ArrayList<Vehicle> getAllVehicles(){
@@ -85,4 +86,16 @@ public class Dealership {
     public void removeVehicle(Vehicle vehicle){
         inventory.remove(vehicle);
     }
-}
+
+    //cant take raw code used predicate to see if code is true or false/ cant use boolean because it will return only once and need to test each vehicle
+    public ArrayList<Vehicle> filterVehicle(Predicate<Vehicle> condition){
+        ArrayList<Vehicle> matching = new ArrayList<>();
+        for(Vehicle v: inventory){
+            if(condition.test(v)){
+                matching.add(v);
+            }
+        }
+        return matching;
+    }
+    }
+
