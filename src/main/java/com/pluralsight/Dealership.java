@@ -50,7 +50,7 @@ public class Dealership {
 
     //Search Methods
 
-    public ArrayList<Vehicle> getVehiclesByPrice(int min, int max) {
+    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
         return null;
     }
 
