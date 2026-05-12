@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.function.Predicate;
 
 public class Dealership {
@@ -87,8 +88,18 @@ public class Dealership {
         inventory.add(vehicle);
     }
 
-    public void removeVehicle(int vin){
-        inventory.removeIf(v -> v.getVin() == vin);
+    public void removeVehicle(Scanner scanner){
+        System.out.println("Vin: ");
+        int vin = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Remove Vehicle with Vin: " + vin + " Y/N");
+        String input = scanner.nextLine();
+
+        if(input.equalsIgnoreCase("y")) {
+            inventory.removeIf(v -> v.getVin() == vin);
+        }
+
     }
 
     //cant take raw code used predicate to see if code is true or false/ cant use boolean because it will return only once and need to test each vehicle
