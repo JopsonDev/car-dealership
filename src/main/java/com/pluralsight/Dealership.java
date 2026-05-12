@@ -87,8 +87,8 @@ public class Dealership {
         inventory.add(vehicle);
     }
 
-    public void removeVehicle(Vehicle vehicle){
-        inventory.remove(vehicle);
+    public void removeVehicle(int vin){
+        inventory.removeIf(v -> v.getVin() == vin);
     }
 
     //cant take raw code used predicate to see if code is true or false/ cant use boolean because it will return only once and need to test each vehicle

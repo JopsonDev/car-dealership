@@ -45,7 +45,7 @@ public class UserInterface {
                     file.saveDealership(dealership);
                 }
                 case 9 -> {
-                    dealership.removeVehicle(makeVehicle(scanner));
+                    dealership.removeVehicle(makeVehicle(scanner).getVin());
 
                     DealershipFileManager file = new DealershipFileManager();
                     file.saveDealership(dealership);
