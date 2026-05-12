@@ -55,39 +55,47 @@ public class Dealership {
         return name + '|' + address + '|' + phone;
     }
 
-    // v -> says get the object v from method for comparison
+    // v -> says get the object v from method for comparison | gathers it when used in UserInterface
     public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
         return filterVehicle(v -> v.getPrice() >= min && v.getPrice() <= max);
     }
 
+    //checks the inventory to see if any makes and models match user input
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
         return filterVehicle(v -> v.getMake().equalsIgnoreCase(make) && v.getModel().equalsIgnoreCase(model));
     }
 
+    //checks inventory based user input of year
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
         return filterVehicle(v -> v.getYear() >= min && v.getYear() <= max);
     }
 
+    //checks inventory based on color entered by user
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
         return filterVehicle(v -> v.getColor().equalsIgnoreCase(color));
     }
 
+    //checks inventory base on range for milage entered by user
     public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
         return filterVehicle(v -> v.getOdometer() >= min && v.getOdometer() <= max);
     }
 
+    //checks inventory for type
     public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
         return filterVehicle(v -> v.getVehicleType().equalsIgnoreCase(vehicleType));
     }
 
+    //shows all vehicles in inventory
     public ArrayList<Vehicle> getAllVehicles(){
             return inventory;
     }
 
+    //adds vehicle to inventory
     public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
     }
 
+    //removes a vehicle by checking vin
     public void removeVehicle(Scanner scanner){
         System.out.println("Vin: ");
         int vin = scanner.nextInt();

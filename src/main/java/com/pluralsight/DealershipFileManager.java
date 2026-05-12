@@ -4,11 +4,13 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.ArrayList;
+
 
 public class DealershipFileManager {
     private String fileName = "inventory.csv";
 
+
+    //Reads inventory file and makes a dealership
     public Dealership getDealership() {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
@@ -49,16 +51,15 @@ public class DealershipFileManager {
         }
     }
 
-    //need tyo fix this
+    //loads a write takes the Vehicles in the dealership array and writes over the current file with the new information
     public void saveDealership(Dealership dealership) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
             writer.write(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone() + "\n");
             for (Vehicle v: dealership.getAllVehicles()){
                 System.out.println(v);
-                writer.write(String.valueOf(v)); //<----- doesnt work
+                writer.write(String.valueOf(v));
             }
-
             writer.close();
         } catch (Exception e) {
             System.out.println("Failed to make new dealership file");

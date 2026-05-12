@@ -7,6 +7,7 @@ public class UserInterface {
 
     private Dealership dealership;
 
+    //initializes the dealership and assigns value to it
     private void init() {
         DealershipFileManager file = new DealershipFileManager();
         dealership = file.getDealership();
@@ -41,12 +42,14 @@ public class UserInterface {
                 case 8 -> {
                     dealership.addVehicle(makeVehicle(scanner));
 
+                    //updates file
                     DealershipFileManager file = new DealershipFileManager();
                     file.saveDealership(dealership);
                 }
                 case 9 -> {
                     dealership.removeVehicle(scanner);
 
+                    //updates file
                     DealershipFileManager file = new DealershipFileManager();
                     file.saveDealership(dealership);
                 }
@@ -59,6 +62,7 @@ public class UserInterface {
         }
     }
 
+    //gather certain information insert what info is needed in parameters and then ask for that info separates and returns an array
     private String[] askInfo(String string, Scanner scanner) {
         while (true) {
             System.out.println("Please enter the " + string + ": ");
@@ -76,6 +80,7 @@ public class UserInterface {
         }
     }
 
+    //ask the user for all information needed to creat a vehicle object
     private Vehicle makeVehicle(Scanner scanner) {
         System.out.println("Vin: ");
         int vin = scanner.nextInt();
@@ -108,10 +113,12 @@ public class UserInterface {
         return new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
     }
 
+    //all process methods gather information needed for search load it into the dealership methods and display the results
     public void processGetVehiclesByPrice(Scanner scanner){
         while(true) {
             String[] info = getMinMax("price", scanner);
             try {
+                //using displayVehicles method to print out correct vehicles | parsing an array to double to use for getVehiclesByPrice method
                 displayVehicles(dealership.getVehiclesByPrice(Double.parseDouble(info[0]), Double.parseDouble(info[1])));
                 break;
             } catch (Exception e) {
@@ -156,12 +163,14 @@ public class UserInterface {
 
     }
 
+    //without other methods will simply print the list of current vehicles
     void displayVehicles(ArrayList<Vehicle> inventory){
         for (Vehicle v: inventory){
             System.out.println(v);
         }
     }
-    
+
+    //ask the user for a min and a max, assigns values and the return it though an array for later use
     private String[] getMinMax(String string, Scanner scanner){
         String[] parts = new String[2];
 
