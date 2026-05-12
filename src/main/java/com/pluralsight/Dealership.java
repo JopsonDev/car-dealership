@@ -49,6 +49,10 @@ public class Dealership {
         this.phone = phone;
     }
 
+    @Override
+    public String toString() {
+        return name + '|' + address + '|' + phone;
+    }
 
     // v -> says get the object v from method for comparison
     public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
@@ -98,4 +102,5 @@ public class Dealership {
         return matching;
     }
     }
+
 

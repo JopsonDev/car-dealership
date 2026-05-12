@@ -38,8 +38,18 @@ public class UserInterface {
                 case 5 -> processGetVehiclesByMileage(scanner);
                 case 6 -> processGetVehicleByType(scanner);
                 case 7 -> processGetAllVehicles();
-                case 8 -> dealership.addVehicle(makeVehicle(scanner));
-                case 9 -> dealership.removeVehicle(makeVehicle(scanner));
+                case 8 -> {
+                    dealership.addVehicle(makeVehicle(scanner));
+
+                    DealershipFileManager file = new DealershipFileManager();
+                    file.saveDealership(dealership);
+                }
+                case 9 -> {
+                    dealership.removeVehicle(makeVehicle(scanner));
+
+                    DealershipFileManager file = new DealershipFileManager();
+                    file.saveDealership(dealership);
+                }
                 case 99 -> {
                     System.out.println("Thank you! Have a nice day.");
                     return;
@@ -146,7 +156,7 @@ public class UserInterface {
 
     }
 
-    private void displayVehicles(ArrayList<Vehicle> inventory){
+    void displayVehicles(ArrayList<Vehicle> inventory){
         for (Vehicle v: inventory){
             System.out.println(v);
         }
