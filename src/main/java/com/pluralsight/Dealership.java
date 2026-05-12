@@ -105,9 +105,9 @@ public class Dealership {
         String input = scanner.nextLine();
 
         if(input.equalsIgnoreCase("y")) {
+            //goes through the list and compares each v to the vin entered if it matches it removes it
             inventory.removeIf(v -> v.getVin() == vin);
         }
-
     }
 
     //cant take raw code used predicate to see if code is true or false/ cant use boolean because it will return only once and need to test each vehicle
